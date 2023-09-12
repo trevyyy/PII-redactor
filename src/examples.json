@@ -1,0 +1,87 @@
+[
+   {
+      "text":"You can reach me on 07597 048355. I have 19563981 ideas to share.",
+      "spans":[
+         {
+            "text":"07597 048355",
+            "is_entity":true,
+            "label":"PHONE_NUMBER",
+            "reason":"is a phone number"
+         },
+         {
+            "text":"19563981",
+            "is_entity":false,
+            "label":"==NONE==",
+            "reason":"is not a phone number"
+         }
+      ]
+   },
+   {
+      "text":"Bring it to 273 S M.L.K. Blvd, Las Vegas, NV 89106... you can't miss it – it's on a hill",
+      "spans":[
+         {
+            "text":"273 S M.L.K. Blvd, Las Vegas, NV 89106",
+            "is_entity":true,
+            "label":"ADDRESS",
+            "reason":"is an address"
+         },
+         {
+            "text":"on a hill",
+            "is_entity":false,
+            "label":"==NONE==",
+            "reason":"is not an address"
+         }
+      ]
+   },
+   {
+      "text":"Send it to my Gmail. It's eugene@thebest.com",
+      "spans":[
+         {
+            "text":"eugene@thebest.com",
+            "is_entity":true,
+            "label":"EMAIL_ADDRESS",
+            "reason":"is an email address"
+         },
+         {
+            "text":"",
+            "is_entity":false,
+            "label":"==NONE==",
+            "reason":"is not an email address"
+         }
+      ]
+   },
+   {
+      "text":"And don't forget, my name is Bob Harp. You know me, don't you?",
+      "spans":[
+         {
+            "text":"Bob Harp",
+            "is_entity":true,
+            "label":"NAME",
+            "reason":"is a person's name"
+         },
+         {
+            "text":"me",
+            "is_entity":false,
+            "label":"==NONE==",
+            "reason":"is not a person's name"
+         }
+      ]
+   },
+   {
+      "text":"Charge it to my Amex, the security code is 7795",
+      "spans":[
+         {
+            "text":"7795",
+            "is_entity":true,
+            "label":"OTHER_PII",
+            "reason":"is a credit card security code, which could be personally identifiable information"
+         },
+         {
+            "text":"my Amex",
+            "is_entity":false,
+            "label":"==NONE==",
+            "reason":"is not personally identifiable information"
+         }
+      ]
+   }
+]
