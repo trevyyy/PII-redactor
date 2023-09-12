@@ -2,6 +2,7 @@ from spacy_llm.util import assemble
 from timeit import default_timer
 from wasabi import msg
 from functools import lru_cache
+import os
 
 
 @lru_cache
@@ -24,10 +25,13 @@ def create_anthropic_pipeline():
     return pipeline
 
 
-def redact_pii(text: str, model: str):
+def redact_pii(text: str):
     """Identify and redact PII in string"""
 
-    nlp = create_openai_pipeline() if model == 'openai' else create_anthropic_pipeline()
+    if os.getenv('OPENAI_API_KEY'):  # if both keys are provided, defaults to OpenAI
+        nlp = create_openai_pipeline()
+    elif os.getenv('ANTHROPIC_API_KEY'):
+        nlp = create_anthropic_pipeline()
     t0 = default_timer()
     doc = nlp(text)
     msg.info(f'Prediction time: {round(default_timer() - t0, 2)}')
