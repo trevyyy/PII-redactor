@@ -13,7 +13,7 @@ export OPENAI_API_KEY="sk-..."
 ```
 or
 ```
-export ANTHROPIC_API_KEY="SK-..."
+export ANTHROPIC_API_KEY="sk-..."
 ```
 🦄 Run the app
 ```
