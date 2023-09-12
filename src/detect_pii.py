@@ -9,7 +9,7 @@ def create_openai_pipeline():
     """Load and cache spaCy pipeline using OpenAI gpt-3.5-turbo model"""
 
     t0 = default_timer()
-    pipeline = assemble(f'src/spancat_openai.cfg', overrides={"paths.examples": "src/examples.json"})
+    pipeline = assemble(f'src/ner_openai.cfg', overrides={"paths.examples": "src/examples.json"})
     msg.good(f'Loaded GPT-3.5 pipeline in {round(default_timer() - t0, 2)}s')
     return pipeline
 
@@ -19,7 +19,7 @@ def create_anthropic_pipeline():
     """Load and cache spaCy pipeline using Anthropic claude-2 model"""
 
     t0 = default_timer()
-    pipeline = assemble(f'src/spancat_anthropic.cfg', overrides={"paths.examples": "src/examples.json"})
+    pipeline = assemble(f'src/ner_anthropic.cfg', overrides={"paths.examples": "src/examples.json"})
     msg.good(f'Loaded Claude-2 pipeline in {round(default_timer() - t0, 2)}s')
     return pipeline
 
@@ -27,8 +27,8 @@ def create_anthropic_pipeline():
 def redact_pii(text: str, model: str):
     """Identify and redact PII in string"""
 
-    t0 = default_timer()
     nlp = create_openai_pipeline() if model == 'openai' else create_anthropic_pipeline()
+    t0 = default_timer()
     doc = nlp(text)
     msg.info(f'Prediction time: {round(default_timer() - t0, 2)}')
     for ent in doc.ents:
