@@ -43,7 +43,7 @@
             "reason":"is an email address"
          },
          {
-            "text":"",
+            "text":"my Gmail",
             "is_entity":false,
             "label":"==NONE==",
             "reason":"is not an email address"
